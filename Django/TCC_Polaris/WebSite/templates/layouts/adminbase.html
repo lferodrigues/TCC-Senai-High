@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    	<meta charset="UTF-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<title>{% block title %}High Fashion: Dashboard{% endblock %}</title>
+    	<link rel="stylesheet"href="{% static './assets/css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-eA0uRAe5RSKxyEsdzjtCO+sw9yoQmP7dF41kwoyUqCgg9gkGlAcd4sP9JCJ6pCpm" crossorigin="anonymous">
+        <style>
+            .custom-form {
+                width: 300px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f7f7f7;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            /* Estilos para os campos do formulário */
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .custom-input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            .custom-textarea {
+                width: 100%;
+                height: 150px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            .custom-file-input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            /* Estilos para o botão */
+            .custom-button {
+                background-color: #947F57;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .custom-button:hover {
+                background-color: #947F57;
+            }
+            .nav-option a {
+                display: flex;
+                justify-content: center;
+                text-decoration: none;
+            }
+
+            .rounded-btn {
+                border: none;
+                border-radius: 15px;
+                width: 100%; 
+                height: 100px;
+                margin: 10px;
+            }
+            .action-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .side-buttons {
+                display: flex;
+                justify-content: center;
+            }
+            .purple-btn {
+                background-color: #3B3B3B; /* Cor roxa */
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 16px;
+            }
+            .white-btn{
+                border: solid #3B3B3B 5px;
+                background-color: #ffffff; /* Cor roxa */
+                color: #3B3B3B;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 16px;
+            }
+            .purple-btn:hover{
+                background-color: #B9C2C4;
+                color:white
+            }
+            .white-btn:hover{
+                background-color: #3B3B3B;
+                color:white
+            }
+        </style>
+    </head>
+    <body>
+        {% block content %}
+        {% endblock %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const navOptions = document.querySelectorAll('.nav-option');
+
+                navOptions.forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        // Remove a classe 'option1' de todos os itens
+                        navOptions.forEach(opt => opt.classList.remove('option1'));
+
+                        // Adiciona a classe 'option1' ao item clicado
+                        e.currentTarget.classList.add('option1');
+
+                        // Verifica se o item clicado é o botão "Catalogo"
+                        if (e.currentTarget.classList.contains('catalogo')) {
+                            // Se for, adiciona a classe 'option1' ao botão "Dashboard" também
+                            document.querySelector('.nav-option.dashboard').classList.add('option1');
+                        }
+
+                        // Armazena o ID ou índice do item ativo no localStorage
+                        const activeItemId = Array.from(navOptions).indexOf(e.currentTarget);
+                        localStorage.setItem('activeItemId', activeItemId);
+                    });
+                });
+
+                // Recupera e aplica a classe 'option1' ao item ativo armazenado no localStorage
+                const activeItemId = localStorage.getItem('activeItemId');
+                if (activeItemId !== null) {
+                    navOptions[activeItemId].classList.add('option1');
+                }
+            });
+        </script>
+    	<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    </body>
+</html>

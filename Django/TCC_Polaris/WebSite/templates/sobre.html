@@ -1,0 +1,71 @@
+{% extends 'layouts/catalogo.html' %}
+{% load static %}
+{% block title %}High Fashion: Sobre{% endblock %}
+{% block content %}
+{% include 'partials/user/catalog/header_catalog.html' %}
+{% include 'partials/user/catalog/modals.html' %}
+    <div id="carouselExample" class="carousel slide position-relative">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'assets/img/compre_agora.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div><br><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static 'assets/img/ere.jpg' %}" class="img-thumbnail" alt="Imagem de Moda" width="600px" height="650px">
+            </div>
+            <div class="col-md-6"><br>
+                <h2>Sobre Nós</h2><br>
+                <p>Bem-vindo à <strong>High Fashion</strong>, sua fonte exclusiva para as últimas tendências de moda. Somos uma empresa dedicada a proporcionar uma experiência única de compras, oferecendo um catálogo abrangente de roupas cuidadosamente selecionadas.</p>
+            </div>
+        </div>
+    </div><br>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6"><br><br>
+                <h2>Nosso Catálogo</h2><br>
+                <p>Explore nossa extensa coleção de roupas, desde peças casuais até looks elegantes para ocasiões especiais. Nosso catálogo é atualizado regularmente para garantir que você esteja sempre por dentro das últimas novidades da moda.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'assets/img/10.jpg' %}" class="img-thumbnail" alt="Imagem do Catálogo" width="600px" height="650px">
+            </div>
+        </div>
+    </div><br><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static 'assets/img/highFashion.png' %}" class="img-thumbnail" alt="Imagem de Moda" width="400px" height="450px">
+            </div>
+            <div class="col-md-6"><br>
+                <h2>Nossa Missão e Visão</h2><br>
+                <p>A <strong>High Fashion</strong> aspira ser a principal fonte de inspiração para entusiastas da moda globalmente,<br>
+                    criando um espaço que celebra a individualidade e inovação na expressão pessoal da moda.</p>
+                <br>
+                <p>A missão da <strong>High Fashion</strong> é oferecer uma plataforma única que transcende os limites da moda convencional.<br>
+                    Comprometemo-nos a proporcionar uma experiência de compra online excepcional, destacando qualidade, diversidade e autenticidade, capacitando nossos clientes a abraçar sua individualidade por meio do estilo.</p>
+        </div>
+    </div><br><br>
+
+    
+    <div class="container">
+    <div class="row">
+            <div class="col-md">
+                <div class="section-container">
+                    <h2>Dicas de Moda</h2><br>
+                    <p>Não apenas oferecemos roupas incríveis, mas também estamos aqui para ajudar você a expressar seu estilo único. Confira nossas dicas de moda e tendências para receber orientações personalizadas e inspiração para criar seus próprios looks inesquecíveis.</p>
+                    <a href="../dicas">
+                        <center><button type="button" class="btn-ver-mais">
+                                    Ver Dicas
+                                </button></center>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    {% include 'partials/user/footer.html' %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'layouts/adminbase.html' %}
+{% load static %}
+{% block content %}
+	<!-- for header part -->
+	{% include 'partials/admin/header.html' %}
+	{% include 'partials/admin/sidebar.html' %}
+	<div class="main">
+        {% include 'partials/alerts.html' %}
+        <form method="POST" action="{% url 'update_fotos' fotos.id %}" enctype="multipart/form-data" class="custom-form">
+            {% csrf_token %}
+            {{form.as_p}}
+            <div class="form-group">
+                <label for="id_foto">Foto:</label>
+                <img src="{{ fotos.foto.url }}" style="width: 100%;border-top-left-radius: calc(0.25rem - 1px);border-top-right-radius: calc(0.25rem - 1px);" alt="{{ foto.titulo }}">
+            </div>
+            <button type="submit" class="custom-button">Editar Produto</button>
+        </form>
+    </div>
+{% endblock %}
+        
